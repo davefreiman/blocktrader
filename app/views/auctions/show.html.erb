@@ -3,5 +3,5 @@
 	<li><%= @auction.start_price %><li>
 	<li><%= @auction.description %><li>
 	<li><%= @auction.user.username %><li>
-	<li><%= @auction.time_remaining %><li>
+	<li><%= @auction.time_remaining(@auction.remainder) %><li>
 </ul>
