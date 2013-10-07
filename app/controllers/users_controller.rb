@@ -9,9 +9,10 @@ class UsersController < ApplicationController
 
 		if @user.save
 			auto_login(@user)	
-			redirect_to users_path
+			redirect_to users_path, notice: "Signed Up!"
 		else
 			render :new
+			flash.now[:alert] = "Signup failed. Try Again" 
 		end
 	end
 
