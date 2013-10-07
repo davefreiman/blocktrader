@@ -32,7 +32,28 @@
 
 	  		<section class="top-bar-section">
 
-	  		
+	  		<ul class="left">
+		        <li class="divider"></li>
+		        <li class><%= link_to "Auctions", :auctions %> </li>
+		    </ul>
+
+		    <ul class="right">
+		        <% if logged_in? %>
+		          <li class="divider"></li>
+		          <li class="has-dropdown"> <a href="#"><%= current_user.first_name %></a>
+		            <ul class="dropdown">
+		          
+		              <li><%= link_to "Log out", logout_path, :method => :delete %></li>
+		            </ul>
+		          </li>
+		          
+		        <% else %>
+		        <li class="divider"></li>
+		         <li class=>  <%= link_to 'Sign Up', [:new, :user]%></li>
+		          <li class="divider"></li>
+		          <li class=><%= link_to 'Sign In', [:new, :session] %></li>
+		       <% end %>
+	      	</ul>
 	  		</section>
 	  	</nav>
 	</div>
