@@ -1,5 +1,6 @@
 class BidsController < ApplicationController
 	before_filter :load_auction
+	before_filter :require_login, :only => [:create]
 
 	def index
 		@bids = @auction.bids.all
@@ -28,5 +29,12 @@ class BidsController < ApplicationController
 	private
 	def load_auction
 		@auction = Auction.find(params[:auction_id])
+	end
+
+
+	def require_login
+		unless current_user
+		  redirect_to new_session_path
+		end
 	end
 end

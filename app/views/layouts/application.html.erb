@@ -18,6 +18,8 @@
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
+    <!-- Countdown -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   </head>
 
   <body>
@@ -57,6 +59,7 @@
 	  		</section>
 
 	  	</nav>
+	
 	
 <!-- Notices -->
 	<% if flash[:notice] %>

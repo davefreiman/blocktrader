@@ -4,7 +4,7 @@ class Bid < ActiveRecord::Base
 
 	validates :auction_id, :presence => true
 	validates :amount, :presence => true,
-		:numericality => {:only_integer => true}
+		:numericality => {:only_integer => true, }
 	validate :amount_must_be_greater_than_current_price
 
 

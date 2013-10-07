@@ -4,21 +4,27 @@
 
 		<%= form_tag sessions_path, :method => :post do %>
 			<div class="row">
-				<div class="large-6 columns">
+				<div class="large-6 columns-centered">
 					<%= label_tag :email %>
 					<%= text_field_tag :email, params[:email], :placeholder => "john@mail.com" %> 
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="large-6 columns">
+				<div class="large-6 columns-centered">
 					<%= label_tag :password %>
 					<%= password_field_tag :password %>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="large-6 columns">
+				<div class="large-6 columns-centered">
+					<p> Don't have an account? <%= link_to "Click Here", new_user_path %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="large-6 columns-centered">
 					<%= submit_tag 'Login', :class => "button" %>
 				</div>
 			</div>
