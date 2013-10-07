@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "BlockTrader" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -21,11 +21,11 @@
   </head>
 
   <body>
-  	<div class="contain-to-grid sticky">
+  	<!-- Nav Bar  -->
 	  	<nav class="top-bar">
 	  		<ul class="title-area">
 	  			<li class="name">
-	  			<h1><a href="#">BlockTrader</a></h1>
+	  			<h1><%= link_to "BlockTrader", :root %></h1>
 	  			</li>
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>	
 	  		</ul>
@@ -55,20 +55,27 @@
 		       <% end %>
 	      	</ul>
 	  		</section>
+
 	  	</nav>
-	</div>
-
+	
+<!-- Notices -->
 	<% if flash[:notice] %>
-	<div class="notice">
-	  <p><%= flash[:notice] %></p>
-	</div>  
+	 <div class="row">
+        <div data-alert class="alert-box success">
+	  		<p class="welcome"><%= flash[:notice] %></p>
+	 		<a href="#" class="close">&times;</a>
+        </div>
+      </div>
 	<% end %>
 
-	<% if flash[:alert] %>
-	<div class="alert">
-	  <p><%= flash[:alert] %></p>
-	</div>  
-	<% end %>
+   <% if flash[:alert] %>
+      <div class="row">
+          <div data-alert class="alert-box success">
+            <p class="welcome"> <%= flash[:alert] %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+      </div>
+    <% end %>
 
 <%= yield %>
 
