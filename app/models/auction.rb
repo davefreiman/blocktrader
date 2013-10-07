@@ -25,6 +25,11 @@ class Auction < ActiveRecord::Base
 	end
 
 	def current_price
-		self.bids.where.not("amount" => nil).last.amount
+		if self.bids.size != 0
+			self.bids.where.not("amount" => nil).last.amount
+		else
+			self.start_price	
+		end
+		
 	end
 end
