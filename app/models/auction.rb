@@ -22,5 +22,9 @@ class Auction < ActiveRecord::Base
 
 	def completed?(remainder)
 		remainder <= 0				 	
-	end													 
+	end
+
+	def current_price
+		self.bids.where.not("amount" => nil).last.amount
+	end
 end

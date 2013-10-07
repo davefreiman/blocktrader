@@ -6,17 +6,18 @@ class BidsController < ApplicationController
 	end
 
 	def new
-		@bid = Bid.new
+		@bid = @auction.bids.build
 	end
 
 	def create
-		@bid = Bid.new(bid_params)
+		@bid = @auction.bids.build(bid_params)
 		@bid.user_id = current_user.id
 
 		if @bid.save
 			redirect_to auction_path(@auction), :notice => "bid processed"
 		else
-			render :new
+			redirect_to auction_path(@auction),
+			:notice => "Bid More"  
 		end		
 	end
 
