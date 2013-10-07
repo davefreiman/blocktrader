@@ -12,16 +12,20 @@ class Auction < ActiveRecord::Base
 
 	def remainder
 		deadline = self.created_at + self.duration.hours
-		remainder = deadline - DateTime.now
+		remainder = deadline - Time.zone.now
 		remainder.to_i
 	end
 
-	def time_remaining(remainder)
-		Time.at(remainder).utc.strftime("%H:%M:%S")				 	
+	def time_remaining
+		if self.completed?
+			"Complete!"
+		else
+			Time.zone.at(self.remainder).utc.strftime("%H:%M:%S")				 	
+		end
 	end
 
-	def completed?(remainder)
-		remainder <= 0				 	
+	def completed?
+		self.remainder <= 0				 	
 	end
 
 	def current_price
