@@ -1,1 +1,28 @@
-new.html.erb
+<h3> New User </h3>
+
+<%= form_for @user do |f| %>
+	<div class="field">
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name %>
+	</div>
+	<div class="field">
+		<%= f.label :last_name %>
+		<%= f.text_field :last_name %>
+	</div>
+	<div class="field">
+		<%= f.label :username %>
+		<%= f.text_field :username %>
+	</div>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div class="field">
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>	
+<%end%>
