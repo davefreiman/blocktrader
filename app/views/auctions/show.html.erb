@@ -1,10 +1,20 @@
 
 
+<ul>
+	<li><%= @auction.name %> </li>
+	<li>Starting Price: $<%= @auction.start_price %></li>
+	<li>Current Price: $<%= @auction.current_price%></li>	
+	<li><%= @auction.description %></li>
+	<li>Seller: <%= @auction.user.username %></li>
+	<li>Time Remaining: <%= @auction.time_remaining(@auction.remainder) %></li>
+</ul>
 
-	<li><%= auction.name %></li>
-	<li>Starting Price: $<%= auction.start_price %><li>
-	<li><%= @auction.description %><li>
-	<li>Seller: <%= @auction.user.username %><li>
-	<li>Time Remaining: <%= @auction.time_remaining(@auction.remainder) %><li>
 
 
+<%= form_for ([@auction, @bid]) do |f| %>
+	<%= f.label :amount %>
+	<%= f.number_field :amount%>
+
+	<%= f.submit %>
+
+<%end%>	

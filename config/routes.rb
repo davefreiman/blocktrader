@@ -3,7 +3,9 @@ Blocktrader::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :users
-  resources :auctions
+  resources :auctions do
+    resources :bids, :only => [:new, :create, :index]
+  end
   resources :sessions
 
   root "welcome#index"
