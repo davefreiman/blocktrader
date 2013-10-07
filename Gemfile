@@ -19,7 +19,7 @@ gem 'sqlite3'
   # Use CoffeeScript for .js.coffee assets and views
   gem 'coffee-rails', '~> 4.0.0'
 
-  gem 'compass-rails'
+  # gem 'compass-rails'
   gem 'zurb-foundation', '~> 4.0.0'
 
 

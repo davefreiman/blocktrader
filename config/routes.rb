@@ -8,8 +8,8 @@ Blocktrader::Application.routes.draw do
 
   root "welcome#index"
 
-  match "login" => "sessions#new", :as => :login
-  match "logout" => "sessions#destroy", :as => :logout
+  get "login" => "sessions#new", :as => :login
+  get "logout" => "sessions#destroy", :as => :logout
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
