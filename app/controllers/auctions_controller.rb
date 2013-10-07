@@ -14,6 +14,7 @@ class AuctionsController < ApplicationController
 
 	def create
 		@auction = Auction.new(auction_params)
+		@auction.user_id = current_user.id
 
 		if @auction.save
 			redirect_to auctions_path, :notice => "Auction Created"
@@ -23,7 +24,7 @@ class AuctionsController < ApplicationController
 	end
 
 	def auction_params
-		params.require(:auction).permit(:name, :duration, :starting_price, :description, :user_id)
+		params.require(:auction).permit(:name, :duration, :start_price, :description, :user_id)
 	end
 
 end

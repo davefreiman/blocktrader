@@ -4,6 +4,6 @@ class Auction < ActiveRecord::Base
 	validates :name, presence: true
 	validates :duration, presence: true,
 											 numericality: {only_integer: true, greater_than: 0}
-	validates :starting_price, presence: true
+	validates :start_price, presence: true,
 														 numericality: {only_integer: true, greater_than: 0}
 end

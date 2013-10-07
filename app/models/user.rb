@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  has_many :auctions
 
-  validates :email, :presence => true
+  validates :email, :presence => true,
 									  :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i},
 										:uniqueness => true
   validates :username, :presence => true
