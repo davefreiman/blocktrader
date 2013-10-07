@@ -6,5 +6,6 @@ FactoryGirl.define do
     duration 1
     start_price 1
     description "MyText"
+    created_at DateTime.now
   end
 end
