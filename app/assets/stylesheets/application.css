@@ -11,4 +11,23 @@
  *= require_self
  *= require_tree .
  */
- *= require foundation_and_overrides
+ *= require foundation_and_overrides;
+
+ .redBorder {
+	background-color: #53DC7F;
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}
+
+.greenBorder {
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}
+
+.blueBorder {
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}

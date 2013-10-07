@@ -345,8 +345,8 @@
 
 // We use this to control alert padding.
 // $alert-padding-top: emCalc(11px);
-// $alert-padding-left: $alert-padding-top;
-// $alert-padding-right: $alert-padding-top + emCalc(10px);
+$alert-padding-left: emCalc(31px);
+$alert-padding-right: emCalc(10px);
  $alert-padding-bottom: emCalc(1px);
 
 // We use these to control text style.
@@ -370,7 +370,7 @@ $alert-bottom-margin: emCalc(00px);
 // $alert-close-font-size: emCalc(22px);
 // $alert-close-opacity: 0.3;
 // $alert-close-opacity-hover: 0.5;
-// $alert-close-padding: 5px 4px 4px;
+ $alert-close-padding: 5px 15px 4px;
 
 // We use this to control border radius
 // $alert-radius: $global-radius;

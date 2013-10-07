@@ -20,6 +20,8 @@
     <%= csrf_meta_tags %>
     <!-- Countdown -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    
   </head>
 
   <body>
@@ -59,7 +61,14 @@
 	  		</section>
 
 	  	</nav>
-	
+
+	<!-- Colour bar -->
+<div class="row">
+<div class="redBorder"></div>
+<div class="greenBorder"></div>
+<div class="blueBorder"></div>
+</row>
+
 	
 <!-- Notices -->
 	<% if flash[:notice] %>

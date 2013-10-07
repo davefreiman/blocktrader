@@ -1,9 +1,56 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 
 
 .row {
 	min-width: 100% !important;
 	display: block;
+}
+
+.container1 {
+	background-image: url(/assets/header2.jpg);
+	background-color: #F6F6F6;
+	width: 100%;
+	height: 300px;
+}
+
+.subtitle {
+
+	text-shadow: 1px 1px black;
+	color: white;
+	margin-top: -4px;
+	padding-left: 100px;
+	padding-top: 70px;
+}
+.segment-subtitle small {
+	text-shadow: 1px 1px black;
+	color: #EFEFEF;
+	padding-top: 0px;
+	padding-left: 110px;
+	
+}
+
+.start-button {
+	padding-left: 110px;
+	padding-top: 20px;
+}
+
+ .redBorder {
+	background-color: #53DC7F;
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}
+
+.greenBorder {
+	background-color: #6dbcdb;
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}
+
+.blueBorder {
+	background-color: #fc4349;;
+	width: 33.33%;
+	float: left;
+	height: 4px;
 }
