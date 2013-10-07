@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Bid do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should not allow a bid lower than the current price" do
+  	bid = FactoryGirl.build(:bid)
+
+  	p bid
+  end
 end
