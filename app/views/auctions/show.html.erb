@@ -1,7 +1,4 @@
 
-<% @auctions.each do |auction| %>
-
-
 <ul>
 	<li><%= @auction.name %> </li>
 	<li>Starting Price: $<%= @auction.start_price %></li>
@@ -10,7 +7,7 @@
 	<li>Seller: <%= @auction.user.username %></li>
 	<li>Time Remaining: <%= @auction.time_remaining(@auction.remainder) %></li>
 </ul>
-<% end %>
+
 
 
 
