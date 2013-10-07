@@ -1,6 +1,6 @@
 <% @auctions.each do |auction| %>
-<ul>
-	<li><%= auction.name %> </li>
+<ul class="vcard">
+	<li><h3><%= auction.name %></h3> </li>
 	<li>Starting Price: $<%= auction.start_price %></li>
 	<li><%= auction.description %></li>
 	<li>Seller: <%= auction.user.username %></li>
