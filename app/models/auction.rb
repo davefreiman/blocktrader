@@ -2,6 +2,7 @@ class Auction < ActiveRecord::Base
 	belongs_to :user
 	has_many :bids
 	has_many :users, :through => :bids
+	belongs_to :location
 
 	validates :name, presence: true
 	validates :duration, presence: true,
