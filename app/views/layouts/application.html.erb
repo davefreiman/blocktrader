@@ -37,45 +37,49 @@
   		<section class="top-bar-section">
 
 	  		<ul class="left">
-	        <li class="divider"></li>
-	        <li class><%= link_to "Auctions", :auctions %> </li>
-	        <li class="divider"></li>
-	        
-	       	<li class="has-form">
-  				 <div class="search-container">  
-  		         <%= form_tag auctions_path, :method => "get" do %>
-  				      <li>
-  				        <%= text_field_tag :search, params[:search] %>
-  				      </li>
-  				      <li>
-  				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
-  				      </li>
 
-  				    <% end %>
-  				  </div>
-  				</li>
-  	    </ul>
+		        <li class="divider"></li>
+		        <li class><%= link_to "Auctions", :auctions %> </li>
+		        <li class="divider"></li>
+		        
+		       	<li class="has-form">
+				 <div class="search-container">  
+		         <%= form_tag auctions_path, :method => "get" do %>
+				      <li>
+				        <%= text_field_tag :search, params[:search] %>
+				      </li>
+				      <li>
+				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
+				      </li>
 
-  	    <ul class="right">
-	        <% if logged_in? %>
-	          <li class="divider"></li>
-	          <li class="has-dropdown"> <a href="#"><%= link_to current_user.first_name, user_path(current_user) %></a>
-	            <ul class="dropdown">
-	              <li><%= link_to "Profile", user_path(current_user) %>
-	              <li><%= link_to "Log out", logout_path, :method => :delete %></li>
-	            </ul>
-	          </li>
-	          
-	        <% else %>
-	        <li class="divider"></li>
-	         <li class=>  <%= link_to 'Sign Up', [:new, :user]%></li>
-	          <li class="divider"></li>
-	          <li class=><%= link_to 'Sign In', [:new, :session] %></li>
-	       <% end %>
-      	</ul>
-  		</section>
+				    <% end %>
+				  </div>
+				</li>
 
-  	</nav>
+		    </ul>
+
+		    <ul class="right">
+		        <% if logged_in? %>
+		          <li class="divider"></li>
+		          <li class="has-dropdown"> <a href="#"><%= link_to current_user.first_name, user_path(current_user) %></a>
+		            <ul class="dropdown">
+		              <li><%= link_to "Profile", user_path(current_user) %>
+		              <li><%= link_to "New Auction", new_auction_path %></li>
+		              <li><%= link_to "Log out", logout_path, :method => :delete %></li>
+		            </ul>
+		          </li>
+		          
+		        <% else %>
+		        <li class="divider"></li>
+		         <li class=>  <%= link_to 'Sign Up', [:new, :user]%></li>
+		          <li class="divider"></li>
+		          <li class=><%= link_to 'Sign In', [:new, :session] %></li>
+		       <% end %>
+	      	</ul>
+	  		</section>
+
+	  	</nav>
+
 
 	<!-- Colour bar -->
 <div class="row">

@@ -158,8 +158,8 @@
 // $acronym-underline: 1px dotted #ddd;
 
 // We use these to control padding and margin
-// $microformat-padding: emCalc(10px) emCalc(12px);
-// $microformat-margin: 0 0 emCalc(20px) 0;
+$microformat-padding: 15px;
+$microformat-margin: 5px 1px 0 0;
 
 // We use these to control the border styles
 // $microformat-border-width: 1px;
@@ -174,7 +174,7 @@
 // $microformat-summary-font-weight: bold;
 
 // We use this to control abbr padding
-// $microformat-abbr-padding: 0 emCalc(1px);
+ $microformat-abbr-padding: 0 emCalc(1px);
 
 // We use this to control abbr font styles
 // $microformat-abbr-font-weight: bold;
