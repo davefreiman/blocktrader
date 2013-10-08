@@ -21,7 +21,7 @@
     <!-- Countdown -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-    
+
   </head>
 
   <body>
@@ -39,6 +39,22 @@
 	  		<ul class="left">
 		        <li class="divider"></li>
 		        <li class><%= link_to "Auctions", :auctions %> </li>
+		        <li class="divider"></li>
+		        
+		       	<li class="has-form">
+				 <div class="search-container">  
+		         <%= form_tag auctions_path, :method => "get" do %>
+				      <li>
+				        <%= text_field_tag :search, params[:search] %>
+				      </li>
+				      <li>
+				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
+				      </li>
+
+				    <% end %>
+				  </div>
+				</li>
+
 		    </ul>
 
 		    <ul class="right">

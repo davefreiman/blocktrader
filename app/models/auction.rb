@@ -3,6 +3,8 @@ class Auction < ActiveRecord::Base
 	has_many :bids
 	has_many :users, :through => :bids
 
+
+
 	validates :name, presence: true
 	validates :duration, presence: true,
 											 numericality: {only_integer: true, greater_than: 0}
@@ -34,5 +36,9 @@ class Auction < ActiveRecord::Base
 		else
 			self.bids.where.not("amount" => nil).last.amount
 		end		
+	end
+
+	def self.search(query)
+			where('name LIKE ?',"%#{query}%")
 	end
 end
