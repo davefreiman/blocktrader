@@ -50,6 +50,9 @@
 				      </li>
               <li>
                 <%= text_field_tag :location, params[:location], :placeholder => "Near" %>
+              </li> 
+              <li> 
+                <%= number_field_tag :radius, params[:radius], :placeholder => "Radius (in km)"%>
               </li>  
 				      <li>
 				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
