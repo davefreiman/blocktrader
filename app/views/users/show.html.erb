@@ -1,4 +1,18 @@
-<%= @user.first_name %>
+<h3><%= @user.first_name %> <%=@user.last_name %></h3>
 
 <p><%= link_to "Edit Account", edit_user_path(@user) %> </p>
+
+<%if @locations %>
+<h5>Locations:</h5>
+  <% @locations.each do |location | %>
+    <p> <%= location.address %> </p>
+    <ul>
+      <li>Latitude: <%= location.latitude %> </li>
+      <li>Longitude: <%= location.longitude %> </li>
+    </ul>  
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{location.latitude}%2C#{location.longitude}" %>
+
+  <%end%>
+<% end %>  
+
 <p><%= link_to "Manage Locations", user_locations_path(@user) %> </p>
