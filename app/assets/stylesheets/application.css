@@ -45,8 +45,14 @@
 
 /*auction index*/
 
+#map-container {
+	background-color: #004E8C;
+	height: 700px;
+}
+
 .auctions-container {
-	border-right: 1px solid #CCCCCC;
+
+
 }
 
 #auctions-holder {
