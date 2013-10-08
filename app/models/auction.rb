@@ -20,7 +20,7 @@ class Auction < ActiveRecord::Base
 		if self.completed?
 			"Complete!"
 		else
-			Time.zone.at(self.remainder).utc.strftime("%H:%M:%S")				 	
+			Time.zone.at(self.remainder).utc.strftime("%e:%H:%M:%S")				 	
 		end
 	end
 
