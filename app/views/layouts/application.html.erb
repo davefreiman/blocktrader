@@ -60,9 +60,9 @@
 		    <ul class="right">
 		        <% if logged_in? %>
 		          <li class="divider"></li>
-		          <li class="has-dropdown"> <a href="#"><%= current_user.first_name %></a>
+		          <li class="has-dropdown"> <a href="#"><%= link_to current_user.first_name, user_path(current_user) %></a>
 		            <ul class="dropdown">
-		          
+		              <li><%= link_to "Profile", user_path(current_user) %>
 		              <li><%= link_to "Log out", logout_path, :method => :delete %></li>
 		            </ul>
 		          </li>

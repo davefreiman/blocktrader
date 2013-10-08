@@ -1,0 +1,16 @@
+<%= form_for ([@user, @location]) do |f| %>
+<div class="row">
+  <div class="large-6 columns">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="large-6 columns">
+    <%= f.submit :class => "button" %>
+  </div>
+</div>
+
+<%end%>
