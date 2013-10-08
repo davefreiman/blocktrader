@@ -1,7 +1,11 @@
 class AuctionsController < ApplicationController
 
 	def index
-		radius = 10
+		if params[:radius] != ""
+			radius = params[:radius]
+		else
+			radius = 10
+		end		
 
 		if current_user
 			nearby_location_ids = Location.near(current_user.locations.first, radius).map{|i| i.id }
