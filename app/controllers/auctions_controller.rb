@@ -1,12 +1,15 @@
 class AuctionsController < ApplicationController
 
 	def index
-		nearby_location_ids = Location.near(current_user.locations.first, 10).map{|i| i.id }	
+		radius = 10
 
-		if params[:search]		  
-			@auctions = Auction.where(location_id: nearby_location_ids).search(params[:search]).order("created_at DESC")
+		nearby_location_ids = Location.near(current_user.locations.first, radius).map{|i| i.id }
+		nearby_location_ids = Location.near(params[:location], radius).map{|i| i.id } if params[:location]	
+
+		if params[:search]
+			@auctions = Auction.where(location_id: nearby_location_ids).search(params[:search]).order("created_at DESC")	
 		else	 
-			@auctions = Auction.where(location_id: nearby_location_ids).order("created_at DESC")
+			@auctions = Auction.order("created_at DESC")
 		end
 
 	end

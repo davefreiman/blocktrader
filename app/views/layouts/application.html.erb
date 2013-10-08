@@ -46,12 +46,14 @@
 				 <div class="search-container">  
 		         <%= form_tag auctions_path, :method => "get" do %>
 				      <li>
-				        <%= text_field_tag :search, params[:search] %>
+				        <%= text_field_tag :search, params[:search], :placeholder => "Search For..." %>
 				      </li>
+              <li>
+                <%= text_field_tag :location, params[:location], :placeholder => "Near" %>
+              </li>  
 				      <li>
 				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
 				      </li>
-
 				    <% end %>
 				  </div>
 				</li>
