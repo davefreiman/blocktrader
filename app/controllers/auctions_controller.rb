@@ -1,7 +1,7 @@
 class AuctionsController < ApplicationController
 
 	def index
-		if params[:radius != nil]
+		if params[:radius] != ""
 			radius = params[:radius]
 		else
 			radius = 10
