@@ -11,14 +11,13 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = @user.location.build(location_params)
+    @location = @user.locations.build(location_params)
 
     if @location.save 
       redirect_to user_path(@user), :notice => "Location Added"
     else
       render :new, flash.now[:alert] = "You messed up"  
     end  
-
   end
 
   def location_params
