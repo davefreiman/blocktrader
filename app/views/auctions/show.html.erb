@@ -6,15 +6,21 @@
 	<li>Current Price: $<%= @auction.current_price%></li>	
 	<li><%= @auction.description %></li>
 	<li>Seller: <%= @auction.user.username %></li>
-	<li>Time Remaining: <%= @auction.time_remaining %></li>
+  <% if @auction.completed? == false %>
+	  <li>Time Remaining: <%= @auction.time_remaining %></li>
+  <% else %>
+    <li><strong>AUCTION FINISHED</strong></li>  
+  <% end %>  
 </ul>
 
 
+<% if !@auction.completed? %>
+  <%= form_for ([@auction, @bid]) do |f| %>
+  	<%= f.label :amount %>
+  	<%= f.number_field :amount%>
 
-<%= form_for ([@auction, @bid]) do |f| %>
-	<%= f.label :amount %>
-	<%= f.number_field :amount%>
+  	<%= f.submit %>
 
-	<%= f.submit %>
+  <%end%>	
 
-<%end%>	
+<%end%>  

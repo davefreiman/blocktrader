@@ -2,8 +2,13 @@
 <ul class="vcard">
 	<li><h3><%= link_to auction.name, auction_path(auction) %></h3> </li>
 	<li>Starting Price: $<%= auction.start_price %></li>
+  <li>Current Price: $<%= auction.current_price%></li> 
 	<li><%= auction.description %></li>
 	<li>Seller: <%= auction.user.username %></li>
-	<li>Time Remaining: <%= auction.time_remaining %></li>
+  <% if auction.completed? == false %>
+    <li>Time Remaining: <%= auction.time_remaining %></li>
+  <% else %>
+    <li><strong>AUCTION FINISHED</strong></li>  
+  <% end %> 
 </ul>
 <% end %>	
