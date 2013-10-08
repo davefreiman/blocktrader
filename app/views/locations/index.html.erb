@@ -1,0 +1,10 @@
+
+
+<p><%= link_to "New Location", new_user_location_path(@user) %></p>
+
+
+<% if @locations %>
+<% @locations.each do |location | %>
+  <p> <%= location.address %>
+  <%end%>
+<% end %>  

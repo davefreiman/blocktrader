@@ -2,7 +2,9 @@ Blocktrader::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :users
+  resources :users do
+    resources :locations
+  end
   resources :auctions do
     resources :bids, :only => [:new, :create, :index]
   end

@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
+	def show
+		@user = User.find(params[:id])
+	end
+
 	def new
 		@user = User.new
 	end
@@ -19,6 +23,19 @@ class UsersController < ApplicationController
 			flash.now[:alert] = "Signup failed. Try Again" 
 		end
 	end
+
+	def edit
+		@user = User.find(params[:id])
+	end
+
+  def update
+  	@user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user), notice: "Account updated!"
+    else
+      render :edit, flash.now[:alert] = "Not updated, try again"
+    end
+  end
 
 
 	def user_params
