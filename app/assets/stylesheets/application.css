@@ -43,6 +43,27 @@
 }
 
 
+/*auction index*/
+
+.auctions-container {
+	border-right: 1px solid #CCCCCC;
+}
+
+#auctions-holder {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+#auctions-holder h3 {
+	margin-bottom: -2px;
+	
+}
+
+#auctions-holder p  {
+	margin-bottom: -5px;
+	
+}
+
 /* auction show*/
 
 
