@@ -17,6 +17,12 @@
 		<%= f.label :start_price %>
 		<%= f.number_field :start_price %>
 	</div>
+
+	<div class="field"> 
+		<%= f.label :location_id %>
+		<%= f.select :location_id, current_user.locations.collect {|loc| [loc.address, loc.id]}%>
+	</div>
+
 	<div class="actions">
 		<%= f.submit %>
 	</div>	
