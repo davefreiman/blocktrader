@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   has_many :auctions
   has_many :locations
-
 	has_many :bids
 	has_many :auctions, :through => :bids
 

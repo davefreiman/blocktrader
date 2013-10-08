@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_login, :except => [:new, :create]
 
 	def index
 		@users = User.all
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			auto_login(@user)	
-			redirect_to users_path, notice: "Signed Up!"
+			redirect_to root_path, notice: "Signed Up!"
 		else
 			render :new
 			flash.now[:alert] = "Signup failed. Try Again" 
@@ -37,7 +38,6 @@ class UsersController < ApplicationController
       render :edit, flash.now[:alert] = "Not updated, try again"
     end
   end
-
 
 	def user_params
 		params.require(:user).permit(:username, :email, :first_name, :last_name, :password)

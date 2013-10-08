@@ -11,6 +11,7 @@ class Auction < ActiveRecord::Base
 											 numericality: {only_integer: true, greater_than: 0}
 	validates :start_price, presence: true,
 													numericality: {only_integer: true, greater_than: 0}
+	validates :location_id, presence: true												
 
 
 	def remainder
