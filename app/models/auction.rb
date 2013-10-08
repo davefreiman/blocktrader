@@ -20,14 +20,6 @@ class Auction < ActiveRecord::Base
 		remainder.to_i
 	end
 
-	def time_remaining
-		if self.completed?
-			"Complete!"
-		else
-			Time.zone.at(self.remainder).utc.strftime("%e:%H:%M:%S")				 	
-		end
-	end
-
 	def completed?
 		self.remainder <= 0				 	
 	end

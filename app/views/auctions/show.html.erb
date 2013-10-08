@@ -10,7 +10,7 @@
     	<p><%= @auction.description %></p>
 
       <% if @auction.completed? == false %>
-    	  <p>Time Remaining: <%= @auction.time_remaining %></p>
+    	  <p>Time Remaining: <%= distance_of_time_in_words(@auction.remainder) %></p>
       <% else %>
         <p><strong>AUCTION FINISHED</strong></p>  
       <% end %>  

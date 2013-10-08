@@ -6,7 +6,7 @@
 	<li><%= auction.description %></li>
 	<li>Seller: <%= auction.user.username %></li>
   <% if auction.completed? == false %>
-    <li>Time Remaining: <%= auction.time_remaining %></li>
+    <li>Time Remaining: <%= distance_of_time_in_words(auction.remainder) %></li>
   <% else %>
     <li><strong>AUCTION FINISHED</strong></li>  
   <% end %> 
