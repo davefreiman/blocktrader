@@ -1,3 +1,4 @@
+
 <div id="container1">
 
 	<div class="large-12 columns">
@@ -9,34 +10,15 @@
 	
 </div>
 
-<%= form_for @auction do |f| %>
-	<div class="text-centered">
-		<div class="row">
-	  		<div class="large-8 columns">
-				<%= f.label :name %>
-				<%= f.text_field :name %>
-			</div>
-		</div>
-		<div class="field">
-			<%= f.label :description %>
-			<%= f.text_area :description %>
-		</div>
-		<div class="field">
-			<%= f.label :duration %>
-			<%= f.number_field :duration %>
-		</div>
-		<div class="field">
-			<%= f.label :start_price %>
-			<%= f.number_field :start_price %>
-		</div>
 
-		<div class="field"> 
-			<%= f.label :location_id %>
-			<%= f.select :location_id, current_user.locations.collect {|loc| [loc.address, loc.id]}%>
-		</div>
 
-		<div class="actions">
-			<%= f.submit %>
-		</div>	
+<div id="form">
+<fieldset>
+	<legend> New Auction </legend>
+	<div id="form-push">
+		<%= render "form" %>
 	</div>
-<%end%>
+</fieldset>
+</div>
+
+
