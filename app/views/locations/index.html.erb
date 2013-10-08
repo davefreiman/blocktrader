@@ -5,6 +5,8 @@
 
 <% if @locations %>
 <% @locations.each do |location | %>
-  <p> <%= location.address %>
+  <p> <%= location.address %> </p>
+  <p> <%= location.latitude %> </p>
+  <p> <%= location.longitude %> </p>
   <%end%>
 <% end %>  
