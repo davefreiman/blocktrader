@@ -15,7 +15,8 @@ Blocktrader::Application.routes.draw do
 
   get "login" => "sessions#new", :as => :login
   delete "logout" => "sessions#destroy", :as => :logout
-
+  delete "delete_location" => "locations#destroy", :as => :delete_location
+ 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

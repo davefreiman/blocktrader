@@ -5,8 +5,10 @@
 
 <% if @locations %>
 <% @locations.each do |location | %>
-  <p> <%= location.address %> </p>
-  <p> <%= location.latitude %> </p>
-  <p> <%= location.longitude %> </p>
+	<p><%= link_to "Delete Location", [@user,location], :method => :delete %></p>
+  	  <p> <%= location.address  %> </p>
+  	<p> <%= location.latitude %> </p>
+  	<p> <%= location.longitude %> </p>
+
   <%end%>
 <% end %>  

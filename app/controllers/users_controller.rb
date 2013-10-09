@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-    @locations = @user.locations.all
+    	@locations = @user.locations.all
 	end
 
 	def new

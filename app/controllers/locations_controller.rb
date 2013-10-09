@@ -10,6 +10,10 @@ class LocationsController < ApplicationController
     @location = @user.locations.build
   end
 
+  def show
+    @location = Location.find(params[:id])
+  end
+
   def create
     @location = @user.locations.build(location_params)
 
@@ -18,6 +22,12 @@ class LocationsController < ApplicationController
     else
       render :new, flash.now[:alert] = "You messed up"  
     end  
+  end
+
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+    redirect_to user_locations_path(@user), notice: "Location deleted"
   end
 
   def location_params
