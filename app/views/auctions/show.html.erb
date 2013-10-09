@@ -16,27 +16,55 @@
       <% end %>  
     </div>
 
+    <div class="large-10 columns">
+      <% if !@auction.completed? %>
+        <%= form_for ([@auction, @bid]) do |f| %>
+        	<%= f.label :amount %>
+        	<%= f.number_field :amount%>
+        	<%= f.submit :class => "button" %>
+        <%end%>	
+      <%end%>
+    </div>
+  </div>
 
+  <div class="large-8 columns">
+    <div id="map-canvas" style="width: 800px; height: 450px;">
 
-
-<div class="large-10 columns">
-<% if !@auction.completed? %>
-  <%= form_for ([@auction, @bid]) do |f| %>
-  	<%= f.label :amount %>
-  	<%= f.number_field :amount%>
-  	<%= f.submit :class => "button" %>
-  <%end%>	
-<%end%>
-</div>
-</div>
-<div class="large-8 columns">
-  <div id="show-map">
-  <% if @auction.location %>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@auction.location.latitude}%2C#{@auction.location.longitude}" %>  
-  <%end %>
-</div>
+    </div>  
+  </div>
 </div>
 
+<div id="lat" style="display:none"> <%= @lat %> </div>
+<div id="lon" style="display:none"> <%= @lon %> </div>
 
+<script>
+  $(function(){
+    console.log("hey")
+    var lat = $("#lat").html();
+    var lon = $("#lon").html();
+    function initialize() {
+      console.log(lat)
+      var myLatLon = new google.maps.LatLng(lat, lon);
+      var mapOptions = {
+        zoom: 18,
+        center: myLatLon,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
 
-</div>
+      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+      var marker = new google.maps.Marker({
+        position: myLatLon,
+        map: map,
+        title: "Location" 
+      });
+    }
+
+    function loadScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true&callback=initialize";
+        document.body.appendChild(script);
+    }
+    initialize()
+  });
+ </script>
