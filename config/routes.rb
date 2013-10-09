@@ -7,6 +7,7 @@ Blocktrader::Application.routes.draw do
   end
   resources :auctions do
     resources :bids, :only => [:new, :create, :index]
+    resources :images
   end
   resources :sessions
 

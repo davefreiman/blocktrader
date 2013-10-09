@@ -2,6 +2,7 @@ class Auction < ActiveRecord::Base
 	belongs_to :user
 	has_many :bids
 	has_many :users, :through => :bids
+	has_many :images, dependent: :destroy
 	belongs_to :location
 
 

@@ -8,7 +8,6 @@
     	<p>Starting Price: $<%= @auction.start_price %></p>
     	<p>Current Price: $<%= @auction.current_price%></p>	
     	<p><%= @auction.description %></p>
-
       <% if @auction.completed? == false %>
     	  <p>Time Remaining: <%= distance_of_time_in_words(@auction.remainder) %></p>
       <% else %>
