@@ -34,12 +34,35 @@
 
 .search-container {
 	margin-top: 5px;
+	width: auto;
+}
+
+#nav_item{
+	position: absolute;
+	top: 15px;
+	width: 100px;
+}
+
+#nav_near {
+	position: absolute;
+	left: 359px;
+	top: 15px;
+	width: 100px;
+
+}
+
+
+#nav_radius {	
+position: absolute;
+	left: 460px;
+	top: 15px;
+	width: 100px;
 }
 
 #nav_search_btn {
-	position: absolute;
-	margin-top: 5px;
-	margin-left: 2px;
+position: absolute;
+left:562px;
+top: 15px;
 }
 
 

@@ -43,21 +43,27 @@
 		        <li class="divider"></li>
 		        
 		       	<li class="has-form">
+		      
 				 <div class="search-container">  
+
 		         <%= form_tag auctions_path, :method => "get" do %>
-				      <li>
-				        <%= text_field_tag :search, params[:search], :placeholder => "Search For..." %>
-				      </li>
-              <li>
-                <%= text_field_tag :location, params[:location], :placeholder => "Near" %>
-              </li> 
-              <li> 
-                <%= number_field_tag :radius, params[:radius], :placeholder => "Radius (in km)"%>
-              </li>  
-				      <li>
+				  
+				      	
+				        <%= text_field_tag :search, params[:search], :placeholder => "Search For...", :id =>"nav_item" %>
+				      
+				
+		              
+		                <%= text_field_tag :location, params[:location], :placeholder => "Near", :id => "nav_near" %>
+		           
+              			
+                		<%= number_field_tag :radius, params[:radius], :placeholder => "Radius (in km)", :id=> "nav_radius"%>
+              			
+              
+				   
 				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
-				      </li>
+				      
 				    <% end %>
+			
 				  </div>
 				</li>
 
