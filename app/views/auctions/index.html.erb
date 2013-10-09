@@ -26,10 +26,10 @@
   </div>
 
      <div class="large-7 columns">
-          <div id="map-canvas">
-           
+        <div id="map-canvas" data-radius="<%= @radius * 1000 %>">
+         
 
-          </div>
+        </div>
      </div>
 </div>
 </div>
@@ -44,14 +44,15 @@
       }
 
     function showPosition(position) {
+      var radius = $("#map-canvas").data("radius");
       var defLatLon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var defMapOptions = {
-        zoom: 15,
+        zoom: 12,
         center: defLatLon,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       var map = new google.maps.Map(document.getElementById("map-canvas"), defMapOptions);
-
+      console.log(radius);
       var defCircleOptions = {
         strokeColor: '#79b0e6',
         strokeOpacity: 0.8,
@@ -60,7 +61,7 @@
         fillOpacity: 0.25,
         map: map,
         center: defLatLon,
-        radius: 1000,    
+        radius: radius,    
       };
       var mapCircle = new google.maps.Circle(defCircleOptions);
     }
