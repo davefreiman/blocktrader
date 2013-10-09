@@ -106,8 +106,9 @@ top: 15px;
 	padding-left: 20px;
 }
 
-#show-map img {
-	width: 1000px;
+#map-canvas {
+	width: 100%;
+	height: 600px;
 }
 
 #radius {
