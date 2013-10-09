@@ -25,6 +25,7 @@ gem 'geocoder'
   gem 'zurb-foundation', '~> 4.0.0'
 
   gem 'carrierwave'
+gem "rmagick"
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

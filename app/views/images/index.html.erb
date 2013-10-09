@@ -1,7 +1,12 @@
-
+<%= form_for([@auction, @image]) do |f| %>
+	<%= f.file_field :file %><br>
+	<%= f.submit "Upload Image" %><br>
+<% end %>
 
 <% @images.each do |i| %>
 	<div class = "image"> 
 		<img src = "<%= i.file %>" />		
 	</div>
 <% end %>
+
+
