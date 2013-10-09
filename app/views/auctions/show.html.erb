@@ -31,7 +31,7 @@
   </div>
 
   <div class="large-8 columns">
-    <div id="map-canvas" style="width: 800px; height: 450px;">
+    <div id="map-canvas">
 
     </div>  
   </div>
@@ -49,25 +49,37 @@
       console.log(lat)
       var myLatLon = new google.maps.LatLng(lat, lon);
       var mapOptions = {
-        zoom: 18,
+        zoom: 15,
         center: myLatLon,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
       var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-      var marker = new google.maps.Marker({
-        position: myLatLon,
+      // var marker = new google.maps.Marker({
+      //   position: myLatLon,
+      //   map: map,
+      //   title: "Location" 
+      // });
+      var circleOptions = {
+        strokeColor: '#79b0e6',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#79b0e6',
+        fillOpacity: 0.25,
         map: map,
-        title: "Location" 
-      });
+        center: myLatLon,
+        radius: 1000,    
+      };
+      var mapCircle = new google.maps.Circle(circleOptions);
     }
 
     function loadScript() {
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true&callback=initialize";
-        document.body.appendChild(script);
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true&callback=initialize";
+      document.body.appendChild(script);
     }
+
     initialize()
   });
  </script>

@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20131009154449) do
   create_table "images", force: true do |t|
     t.string   "file"
     t.integer  "auction_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20131009154449) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "gmaps"
   end
 
 end
