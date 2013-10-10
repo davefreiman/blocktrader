@@ -7,18 +7,24 @@
       <p>Seller: <%= @auction.user.username %> <%= link_to "Manage Images", auction_images_path(@auction), :class => "small button round" if current_user == @auction.user %>
       </p>
     	<p>Starting Price: $<%= @auction.start_price %></p>
-    	<p>Current Bid: $<%= @auction.current_price%></p>	
+      <p><%= auction_summary(@auction) %></p>
     	<p><%= @auction.description %></p>
-     <% @auction.images.each do |i| %>
-        <img src = "<%= i.file%>" /> 
-      <% end %>
      
       <% if @auction.completed? == false %>
     	  <p>Time Remaining: <%= distance_of_time_in_words(@auction.remainder) %></p>
       <% else %>
         <p><strong>AUCTION FINISHED</strong></p>  
+
       <% end %>  
    
+
+ 
+
+      <% @auction.images.each do |i| %>
+        <img src = "<%= i.file%>" /> 
+      <% end %> 
+    </div>
+
 
     <div class="large-10 columns">
       <% if !@auction.completed? %>
