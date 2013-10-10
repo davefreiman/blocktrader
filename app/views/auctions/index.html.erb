@@ -8,10 +8,9 @@
             <% if !auction.completed? %>
               <div id="auctions-holder">
               	<h3><%= link_to auction.name, auction_path(auction) %></h3>
-                <p>Current Price: $<%= auction.current_price%></p> 
+                <p><%= auction_summary(auction) %></p>
               	<p>Seller: <%= auction.user.username %></p>
-                <p class="distancer"> Distance: <%= auction.location.distance_from(auction.user.locations.first).round(2) %> km</p>
-
+                <p class="distancer"> Distance: <%= auction.location.distance_from(current_user.locations.first).round(2) %> km</p>
                 <% if auction.completed? == false %>
                   <p>Time Remaining: <%= distance_of_time_in_words(auction.remainder) %></p>
                 <% else %>

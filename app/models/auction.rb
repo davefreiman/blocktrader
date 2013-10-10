@@ -27,7 +27,7 @@ class Auction < ActiveRecord::Base
 
 	def current_price
 		if self.bids.first == nil || self.bids.first.amount == nil
-			 self.start_price 		 
+			 "No Bids Yet" 		 
 		else
 			self.bids.where.not("amount" => nil).last.amount
 		end		
@@ -38,7 +38,9 @@ class Auction < ActiveRecord::Base
 	end
 
 	def leader
-		self.bids.last.user if !self.completed? && self.bids.first != nil
+		return "" if self.bids.empty? || self.bids.first.amount == nil
+		return self.winner if self.completed?
+		self.bids.where.not("amount" => nil).last.user.username if !self.completed? && self.bids.first != nil
 	end
 
 	def self.search(query)
