@@ -1,3 +1,5 @@
+<div class="user-show-container">
+
 <h3><%= @user.first_name %> <%=@user.last_name %></h3>
 
 <p><%= link_to "Edit Account", edit_user_path(@user) %> </p>
@@ -16,3 +18,5 @@
 <% end %>  
 
 <p><%= link_to "Manage Locations", user_locations_path(@user) %> </p>
+
+</div>

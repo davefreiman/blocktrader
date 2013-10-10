@@ -108,21 +108,21 @@
 	
 <!-- Notices -->
 	<% if flash[:notice] %>
-	 <div class="row">
-        <div data-alert class="alert-box success">
-	  		<p class="welcome"><%= flash[:notice] %></p>
-	 		<a href="#" class="close">&times;</a>
-        </div>
-      </div>
+	 
+      <div id="myModal" class="reveal-modal">
+	  		<%= flash[:notice] %>
+	 </div>
+     
+
 	<% end %>
 
    <% if flash[:alert] %>
-      <div class="row">
-          <div data-alert class="alert-box success">
-            <p class="welcome"> <%= flash[:alert] %></p>
-            <a href="#" class="close">&times;</a>
-          </div>
-      </div>
+ 
+        <div id="myModal" class="reveal-modal">
+             <%= flash[:alert] %>
+         </div>
+       
+
     <% end %>
 
 <%= yield %>

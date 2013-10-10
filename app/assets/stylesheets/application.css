@@ -13,6 +13,8 @@
  */
  *= require foundation_and_overrides;
 
+
+
  .redBorder {
 	background-color: #53DC7F;
 	width: 33.33%;
@@ -114,12 +116,15 @@ top: 15px;
 }
 
 #auction-info {
+	position: relative;
+	
+	padding-top: 60px;
 	padding-left: 20px;
 }
 
 #map-canvas {
 	position: absolute;
-	top: 50px;
+	top: 64px;
 	width: 100%;
 	height: 1000px;
 }
@@ -132,3 +137,28 @@ top: 15px;
 	float: right;
 }
 
+/*Auction New*/
+#header-container {
+	width: 100%;
+	background-color: #EFEFEF;
+	padding-top: 100px;
+	padding-bottom: 20px;
+	height: 400px;
+}
+
+#title-container {
+ padding-bottom: 50px;
+}
+/* User Profile*/
+
+.user-show-container {
+	padding-top: 65px;
+	padding-left: 20px;
+}
+
+/*Site Wide*/
+
+.user-new-container {
+	padding-top: 60px;
+	
+}
