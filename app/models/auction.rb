@@ -33,7 +33,15 @@ class Auction < ActiveRecord::Base
 		end		
 	end
 
+	def winner
+		self.bids.last.user if self.completed? && self.bids.first != nil
+	end
+
+	def leader
+		self.bids.last.user if !self.completed? && self.bids.first != nil
+	end
+
 	def self.search(query)
-			where('name LIKE ?',"%#{query}%")
+		where('name LIKE ?',"%#{query}%")
 	end
 end
