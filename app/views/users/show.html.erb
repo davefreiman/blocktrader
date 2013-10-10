@@ -2,11 +2,21 @@
 
 <h3><%= @user.first_name %> <%=@user.last_name %></h3>
 
-<p><%= link_to "Edit Account", edit_user_path(@user) %> </p>
+<p><%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round" %> 
+<%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %> </p>
+
+<h5>Auctions Won: </h5>
+<% @auctions.each do |auction| %>
+  <ul>
+    <% if auction.winner == @user.username %>
+      <li><%= link_to auction.name, auction_path(auction) %></li>
+    <% end %>
+  </ul>
+<% end %>  
 
 <%if @locations %>
 <h5>Locations:</h5>
-  <% @locations.each do |location | %>
+  <% @locations.each do |location| %>
     <p> <%= location.address %> </p>
     <ul>
       <li>Latitude: <%= location.latitude %> </li>
@@ -17,6 +27,8 @@
   <%end%>
 <% end %>  
 
-<p><%= link_to "Manage Locations", user_locations_path(@user) %> </p>
+
+
+
 
 </div>
