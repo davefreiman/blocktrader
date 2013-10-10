@@ -2,7 +2,7 @@
   <div id="auctions-index-container">
     <div class="large-5 columns">
 
-        <div class="auctions-container">
+        <div class="auctions-container" data-auction="<%= @auctions.to_json %>">
 
           <% @auctions.each do |auction| %>
 
@@ -10,12 +10,12 @@
             	<h3><%= link_to auction.name, auction_path(auction) %></h3>
               <p>Current Price: $<%= auction.current_price%></p> 
             	<p>Seller: <%= auction.user.username %></p>
-              <p>Distance: <%= auction.location.distance_from(auction.user.locations.first).round(2) %> km</p>
+              <p class="distancer"> Distance: <%= auction.location.distance_from(auction.user.locations.first).round(2) %> km</p>
 
               <% if auction.completed? == false %>
-                  <p>Time Remaining: <%= distance_of_time_in_words(auction.remainder) %></p>
-                <% else %>
-                  <p><strong>AUCTION FINISHED</strong></p>  
+                <p>Time Remaining: <%= distance_of_time_in_words(auction.remainder) %></p>
+              <% else %>
+                <p><strong>AUCTION FINISHED</strong></p>  
               <% end %> 
 
             </div>
@@ -39,7 +39,7 @@
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-        }
+      }
       else {console.log("Geolocation is not supported by this browser.");}
       }
 
@@ -52,7 +52,6 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       var map = new google.maps.Map(document.getElementById("map-canvas"), defMapOptions);
-      console.log(radius);
       var defCircleOptions = {
         strokeColor: '#79b0e6',
         strokeOpacity: 0.8,
@@ -72,8 +71,16 @@
       script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true&callback=initialize";
       document.body.appendChild(script);
     }
-
     getLocation()
+
+      var auctions = $(".auctions-container").data("auction")
+      $.each([auctions], function(index, auction){
+        console.log(auction);
+        $.each(auction, function(key, value){
+          console.log(value.name)
+        });
+      });      
+
   });
 
 </script>
