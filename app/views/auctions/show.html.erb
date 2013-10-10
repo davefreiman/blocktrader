@@ -1,7 +1,7 @@
 
 <div class="row">
-  <div class="large-4 columns">
-
+  <div class="large-5 columns">
+    
     <div id="auction-info">
       <h1><%= @auction.name %> </h1>
       <p>Seller: <%= @auction.user.username %> <%= link_to "Manage Images", auction_images_path(@auction), :class => "small button round" if current_user == @auction.user %>
@@ -18,7 +18,7 @@
       <% else %>
         <p><strong>AUCTION FINISHED</strong></p>  
       <% end %>  
-    </div>
+   
 
     <div class="large-10 columns">
       <% if !@auction.completed? %>
@@ -30,12 +30,15 @@
       <%end%>
     </div>
   </div>
+ </div>
 
-  <div class="large-8 columns">
+<div class="full-page">  
+  <div class="large-7 columns">
     <div id="map-canvas" data-lat="<%= @lat.round(2) %>" data-lon="<%= @lon.round(2) %>">
 
     </div>  
   </div>
+</div>
 </div>
 
 
