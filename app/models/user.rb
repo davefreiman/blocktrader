@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :locations
 	has_many :bids
 	has_many :auctions, :through => :bids
+  has_many :notifications
 
   validates :email, :presence => true,
 									  :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i},
