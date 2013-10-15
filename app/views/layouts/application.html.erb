@@ -46,6 +46,7 @@
 		        <li class><%= link_to "Auctions", :auctions %> </li>
 		        <li class="divider"></li>
 		        
+
 		       	<li class="has-form">
 		      
 				 <div class="search-container">  
@@ -60,7 +61,7 @@
 		                <%= text_field_tag :location, params[:location], :placeholder => "Near", :id => "nav_near" %>
 		           
               			
-                		<%= number_field_tag :radius, params[:radius], :placeholder => "Radius (in km)", :id=> "nav_radius"%>
+                		<%= number_field_tag :radius, params[:radius], :placeholder => "Radius", :id=> "nav_radius"%>
               			
               
 				   
