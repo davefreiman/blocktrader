@@ -1,6 +1,9 @@
 class AuctionsController < ApplicationController
 
 	def index
+
+		@search = params[:search]
+		
 		if params[:radius].present? && params[:radius] != ""
 			@radius = params[:radius]
 		else

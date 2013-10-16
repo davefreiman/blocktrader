@@ -1,40 +1,39 @@
 <div class="user-show-container">
 
-<h3><%= @user.first_name %> <%=@user.last_name %></h3>
+<div class="row">
+  <div id="header-name-container">
+      <div id="user-name">
+        <h2><%= @user.first_name %> <%=@user.last_name %></h2>
 
-<p><%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round" %> 
-<%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %> </p>
+        <p><%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round" %> 
+        <%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %> </p>
+     </div>
+  </div>
+</div>
 
-<h5>Auctions Won: </h5>
-<% @auctions.each do |auction| %>
-  <ul>
-    <% if auction.winner == @user.username %>
-      <li><%= link_to auction.name, auction_path(auction) %></li>
-    <% end %>
-  </ul>
-<% end %> 
+<div class="row">
+      <div id="auctions-won">
+          <h5>Auctions Won: </h5>
+          <% @auctions.each do |auction| %>
+            
+              <% if auction.winner == @user.username %>
+               <p><%= link_to auction.name, auction_path(auction) %></p>
+              <% end %>
+            
+          <% end %>  
+      </div>
 
-<%if @notifications %>
-<h5>Notifications:</h5>
-<ul>
-<% @notifications.each do |note| %>
-  <li><%= note.notice %></li>
-<%end%>
-</ul>
-<%end%>
-
-<%if @locations %>
-<h5>Locations:</h5>
-  <% @locations.each do |location| %>
-    <p> <%= location.address %> </p>
-    <ul>
-      <li>Latitude: <%= location.latitude %> </li>
-      <li>Longitude: <%= location.longitude %> </li>
-    </ul>  
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{location.latitude}%2C#{location.longitude}" %>
-
-  <%end%>
-<% end %>  
+      <div id="auctions-won">
+          <%if @locations %>
+          <h5>My Locations:</h5>
+            <% @locations.each do |location| %>
+              <p> <%= location.address %> </p>
+           
+              <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{location.latitude}%2C#{location.longitude}" %>
+            <%end%>
+          <% end %>  
+      </div>
+</div>
 
 
 

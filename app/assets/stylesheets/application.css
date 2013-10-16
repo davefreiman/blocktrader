@@ -34,9 +34,11 @@
 	height: 4px;
 }
 
+/* Search Bar*/
+
 .search-container {
 	margin-top: 5px;
-	
+
 }
 
 #nav_item{
@@ -53,22 +55,19 @@
 
 }
 
-
-
-
 #nav_radius {	
 position: absolute;
 	left: 460px;
 	top: 15px;
-	width: 100px;
+	width: 90px;
 }
 
 #nav_search_btn {
 position: absolute;
-left:562px;
+left:552px;
 top: 15px;
 }
-
+/**/
 
 /*auction index*/
 

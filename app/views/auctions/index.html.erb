@@ -6,6 +6,9 @@
 
 
          <div class="auctions-container" data-auction="<%= @auctions.to_json %>">
+
+          <!-- <h4>You searched for: "<%= @search %>"</h4> -->
+          
           <% @auctions.each do |auction| %>
             <% if !auction.completed? %>
               <div id="auctions-holder">
