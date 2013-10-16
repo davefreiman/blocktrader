@@ -90,10 +90,32 @@
 		        <li class="divider"></li>
 		         <li class=>  <%= link_to 'Sign Up', [:new, :user]%></li>
 		          <li class="divider"></li>
-		          <li class=><%= link_to 'Sign In', [:new, :session] %></li>
+		          <li  data-reveal-id="signInModal"><%= link_to 'Sign In', [:new, :session] %></li>
 		       <% end %>
 	      	</ul>
 	  		</section>
+
+
+	  		<div id="signInModal" class="reveal-modal">
+			  <%= form_tag sessions_path, :method => :post do %>
+			
+				
+					<%= label_tag :email %>
+					<%= text_field_tag :email, params[:email], :placeholder => "john@mail.com" %> 
+		
+				
+					<%= label_tag :password %>
+					<%= password_field_tag :password %>
+		
+				</br>
+					<p> Don't have an account? <%= link_to "Click Here", new_user_path %>
+
+					<%= submit_tag 'Login', :class => "button" %>
+				</div>
+			</div>
+
+		<% end %>
+			</div>
 
 	  	</nav>
 	  	<div class="row">

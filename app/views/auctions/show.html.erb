@@ -40,6 +40,8 @@
 
   <div id="myModal" class="reveal-modal">
      <% if !@auction.completed? %>
+
+     <p><%= auction_summary(@auction) %></p>
         <%= form_for ([@auction, @bid]) do |f| %>
           <%= f.label :amount %>
           <%= f.number_field :amount%>

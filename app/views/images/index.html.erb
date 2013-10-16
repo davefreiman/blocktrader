@@ -1,16 +1,23 @@
-<div class="user-new-container">
+<div class="image-manager">
 
-
+<h2 id="manage-images">Images</h2>
 <%= form_for([@auction, @image]) do |f| %>
-	<%= f.file_field :file %><br>
-	<%= f.submit "Upload Image" %><br>
+	<%= f.file_field :file%></br>
+</br>
+	<%= f.submit "Upload Image", class: "button" %><br>
 <% end %>
 
+
+<ul class="clearing-thumbs" data-clearing>
 <% @images.each do |i| %>
-	<div class = "image"> 
-		<img src = "<%= i.file %>" />		
-	</div>
+	<li>
+		<a href="<%= i.file%>" class="th">
+			<img src ="<%= i.file_url(:thumb) %>" />
+		</a>
+	</li>		
+	
 <% end %>
+</ul>
 
 </div>
 

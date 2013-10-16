@@ -157,10 +157,7 @@ top: 15px;
 
 /*Site Wide*/
 
-.user-new-container {
-	padding-top: 60px;
-	
-}
+
 
 /*Clearing*/
 
@@ -173,4 +170,14 @@ top: 15px;
 	margin-right: 10px; 
 	padding-bottom: 10px;
 
+}
+
+/*Image Index*/
+
+#manage-images {
+	margin-top: 10px;
+}
+
+.image-manager {
+	padding-left: 20px;
 }
