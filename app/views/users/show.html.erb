@@ -30,7 +30,7 @@
           <p>Score: <%= rating.score %> </p>
           <p>Comment: <%= rating.comment %> </p>
         <% end %>
-        <p>Average rating: <%= rating_average(@ratings) %></p>
+        <p>Average rating: <%= rating_average(@ratings).round(2) %></p>
       </div>  
 
       <div id="auctions-won">

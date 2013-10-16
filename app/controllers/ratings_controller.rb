@@ -15,7 +15,7 @@ class RatingsController < ApplicationController
     @rating = Rating.new(rating_params)
     @rating.user_id = @user.id
     if @rating.save
-      redirect_to user_ratings_path(@user), :notice => "rating created. Thanks!"
+      redirect_to current_user, :notice => "rating created. Thanks!"
     else  
       render :new
     end  

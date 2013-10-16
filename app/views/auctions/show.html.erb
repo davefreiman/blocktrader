@@ -13,8 +13,11 @@
       <% if @auction.completed? == false %>
     	  <p>Time Remaining: <%= distance_of_time_in_words(@auction.remainder) %></p>
       <% else %>
-        <p><strong>AUCTION FINISHED</strong></p>  
-
+        <p><strong>AUCTION FINISHED</strong><br>
+        <% if current_user.username == @auction.winner%>
+          <%= link_to "Rate #{@auction.user.first_name}", new_user_rating_path(@auction.user), :class => "tiny button round" %>
+        <%end%>
+        </p>
       <% end %>  
    
 
