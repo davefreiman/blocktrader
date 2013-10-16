@@ -12,7 +12,16 @@
       <li><%= link_to auction.name, auction_path(auction) %></li>
     <% end %>
   </ul>
-<% end %>  
+<% end %> 
+
+<%if @notifications %>
+<h5>Notifications:</h5>
+<ul>
+<% @notifications.each do |note| %>
+  <li><%= note.notice %></li>
+<%end%>
+</ul>
+<%end%>
 
 <%if @locations %>
 <h5>Locations:</h5>

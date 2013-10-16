@@ -10,6 +10,7 @@ Blocktrader::Application.routes.draw do
     resources :images
   end
   resources :sessions
+  resources :notifications, :only => [:new, :create, :index]
 
   root "welcome#index"
 
