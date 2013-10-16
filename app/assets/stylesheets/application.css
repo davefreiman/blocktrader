@@ -14,7 +14,6 @@
  *= require foundation_and_overrides;
 
 
-
  .redBorder {
 	background-color: #53DC7F;
 	width: 33.33%;
@@ -38,34 +37,32 @@
 
 .search-container {
 	margin-top: 5px;
-
+	
 }
 
 #nav_item{
-	position: absolute;
-	top: 15px;
+	display: inline;
+	float:left;
 	width: 100px;
 }
 
 #nav_near {
-	position: absolute;
-	left: 359px;
-	top: 15px;
+	display: inline;
+	float:left;
 	width: 100px;
-
 }
 
 #nav_radius {	
-position: absolute;
-	left: 460px;
-	top: 15px;
-	width: 90px;
+	display: inline;
+	float:left;
+	width: 100px;
 }
 
 #nav_search_btn {
-position: absolute;
-left:552px;
-top: 15px;
+	display: inline;
+	float:left;
+	width: 100px;
+	margin-left: 10px;
 }
 /**/
 
@@ -140,7 +137,7 @@ top: 15px;
 #header-container {
 	width: 100%;
 	background-color: #EFEFEF;
-	padding-top: 100px;
+	padding-top: 20px;
 	padding-bottom: 20px;
 	height: 400px;
 }
