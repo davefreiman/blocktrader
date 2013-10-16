@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20131015164503) do
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "gmaps"
   end
 
 end
