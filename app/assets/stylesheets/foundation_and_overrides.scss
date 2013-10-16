@@ -347,7 +347,7 @@ $microformat-margin: 5px 1px 0 0;
 // $alert-padding-top: emCalc(11px);
 $alert-padding-left: emCalc(31px);
 $alert-padding-right: emCalc(10px);
- $alert-padding-bottom: emCalc(1px);
+ $alert-padding-bottom: emCalc(10px);
 
 // We use these to control text style.
 // $alert-font-weight: bold;
@@ -362,15 +362,15 @@ $alert-padding-right: emCalc(10px);
 // $alert-border-style: solid;
 // $alert-border-width: 1px;
 // $alert-border-color: darken($primary-color, $alert-function-factor);
-$alert-bottom-margin: emCalc(00px);
+$alert-bottom-margin: emCalc(0px);
 
 // We use these to style the close buttons
-// $alert-close-color: #333;
-// $alert-close-position: emCalc(5px);
+$alert-close-color: white;
+$alert-close-position: emCalc(5px);
 // $alert-close-font-size: emCalc(22px);
 // $alert-close-opacity: 0.3;
 // $alert-close-opacity-hover: 0.5;
-// $alert-close-padding: 5px 15px 4px;
+ $alert-close-padding: 100px;
 
 // We use this to control border radius
 // $alert-radius: $global-radius;
@@ -931,7 +931,7 @@ $alert-bottom-margin: emCalc(00px);
 
 // We use these to control border styles
 // $thumb-border-style: solid;
-// $thumb-border-width: 4px;
+$thumb-border-width: 2px;
 // $thumb-border-color: #fff;
 // $thumb-box-shadow: 0 0 0 1px rgba(#000,.2);
 // $thumb-box-shadow-hover: 0 0 6px 1px rgba($primary-color,0.5);

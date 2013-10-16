@@ -18,13 +18,14 @@
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
-    <!-- Countdown -->
-    <!-- // <script type='text/javascript' src='application.js'></script> -->
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
  
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true">
     </script>
- <script type="text/javascript" src="/assets/custom.js"></script>
+
+
+
   </head>
 
   <body>
@@ -110,7 +111,7 @@
 <!-- Notices -->
 	<% if flash[:notice] %>
 	 
-      <div id="myModal" class="reveal-modal">
+      <div data-alert class="alert-box">
 	  		<%= flash[:notice] %>
 	 </div>
      
@@ -119,7 +120,7 @@
 
    <% if flash[:alert] %>
  
-        <div id="myModal" class="reveal-modal">
+        <div data-alert class="alert-box">
              <%= flash[:alert] %>
          </div>
        
@@ -130,10 +131,17 @@
 
 
 	
- <script>
-  	
-	</script>  
+
+    	<!-- Foundation JS -->
+
+
+	<script type="text/javascript" src="js/foundation/foundation.js"></script>
+
+  	<script type="text/javascript" src="/assets/custom.js"></script>
+
+
     <%= javascript_include_tag "application" %>
+
   </body>
 </html>
 
