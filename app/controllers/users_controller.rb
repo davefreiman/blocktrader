@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @locations = @user.locations.all
     @notifications = @user.notifications.all
     @auctions = Auction.all
+    @ratings = @user.ratings.all
 	end
 
 	def new

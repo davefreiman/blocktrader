@@ -4,6 +4,7 @@ Blocktrader::Application.routes.draw do
 
   resources :users do
     resources :locations
+    resources :ratings, :only => [:new, :create, :index]
   end
   resources :auctions do
     resources :bids, :only => [:new, :create, :index]
@@ -11,6 +12,7 @@ Blocktrader::Application.routes.draw do
   end
   resources :sessions
   resources :notifications, :only => [:new, :create, :index]
+
 
   root "welcome#index"
 

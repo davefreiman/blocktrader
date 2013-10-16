@@ -24,6 +24,15 @@
       </div>
 
       <div id="auctions-won">
+        <h5>Ratings:</h5>        
+        <% @ratings.each do |rating| %>
+          <p>Score: <%= rating.score %> </p>
+          <p>Comment: <%= rating.comment %> </p>
+        <% end %>
+        <p>Average rating: <%= rating_average(@ratings) %></p>
+      </div>  
+
+      <div id="auctions-won">
           <%if @locations %>
           <h5>My Locations:</h5>
             <% @locations.each do |location| %>

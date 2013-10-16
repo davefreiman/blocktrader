@@ -1,0 +1,16 @@
+
+<div class="user-show-container">
+<h4> New rating for <%= @user.first_name %> </h4>
+
+<%= form_for [@user, @rating] do |f| %>
+
+<p><%=f.label :score %></p>
+<p><%= f.select :score, @scores.each { |s| [s,s] } %></p>
+
+<p><%= f.label :comment %></p>
+<p><%= f.text_area :comment %></p>
+
+<p><%= f.submit %></p>
+
+<% end %>
+</div>
