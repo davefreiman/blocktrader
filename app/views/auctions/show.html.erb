@@ -19,22 +19,35 @@
    
 
  
+      <ul class="clearing-thumbs" data-clearing>
+        <% @auction.images.each do |i| %>
+          <li><a href="<%= i.file%>" class="th"><img src ="<%= i.file_url(:thumb) %>" /></a></li>
+        <% end %> 
+      </ul>
 
-      <% @auction.images.each do |i| %>
-        <img src = "<%= i.file%>" /> 
-      <% end %> 
     </div>
+
 
 
     <div class="large-10 columns">
       <% if !@auction.completed? %>
         <%= form_for ([@auction, @bid]) do |f| %>
-        	<%= f.label :amount %>
-        	<%= f.number_field :amount%>
-        	<%= f.submit :class => "button" %>
+        	<a href="#" data-reveal-id="myModal"><%= f.submit :class => "button" %></a>
         <%end%>	
       <%end%>
     </div>
+  </div>
+
+  <div id="myModal" class="reveal-modal">
+     <% if !@auction.completed? %>
+
+     <p><%= auction_summary(@auction) %></p>
+        <%= form_for ([@auction, @bid]) do |f| %>
+          <%= f.label :amount %>
+          <%= f.number_field :amount%>
+          <%= f.submit :class => "button" %>
+        <%end%> 
+      <%end%>
   </div>
 
 
@@ -92,3 +105,4 @@
     initialize()
   });
  </script>
+ 
