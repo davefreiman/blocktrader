@@ -3,12 +3,24 @@
 
 <div class="row">
   <div id="header-name-container">
+
+      
+      
+
       <div id="user-name">
+
+        <div class="user-avatar">
+          <% @user.avatars.each do |i| %>
+            <a href="<%= i.file%>" id="user-profile-avatar"><img src ="<%= i.file_url(:thumb)%>" /></a>
+          <% end %> 
+        </div>
+
         <h2><%= @user.first_name %> <%=@user.last_name %></h2>
         <h4 style="padding-left: 10px;"><%= @user.email %></h4> </br>
 
         <p><%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round" %> 
-        <%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %> </p>
+        <%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %>
+         <%= link_to "Manage Avatar", user_avatars_path(@user), :class => "button tiny round" %> </p>
      </div>
   </div>
 </div>

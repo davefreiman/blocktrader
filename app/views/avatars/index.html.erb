@@ -1,0 +1,26 @@
+<div class="image-manager">
+
+<h2 id="manage-images">Avatars</h2>
+<%= form_for([@user, @avatar]) do |f| %>
+	<%= f.file_field :file%></br>
+</br>
+	<%= f.submit "Upload Image", class: "button" %><br>
+<% end %>
+
+
+<% if @avatars %>
+<% @avatars.each do |i| %>
+	<li>
+		
+			<img src ="<%= i.file_url(:thumb) %>"/>
+			<p><%= link_to "Delete", [@user, i], :method => :delete %></p> 
+		
+	</li>		
+	
+<% end %>
+<% end %>
+
+
+
+
+</div>

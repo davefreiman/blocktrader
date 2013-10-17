@@ -5,6 +5,7 @@ Blocktrader::Application.routes.draw do
   resources :users do
     resources :locations
     resources :ratings, :only => [:new, :create, :index]
+    resources :avatars
   end
   resources :auctions do
     resources :bids, :only => [:new, :create, :index]
@@ -19,6 +20,7 @@ Blocktrader::Application.routes.draw do
   get "login" => "sessions#new", :as => :login
   delete "logout" => "sessions#destroy", :as => :logout
   delete "delete_location" => "locations#destroy", :as => :delete_location
+  delete "delete_avatar" => "avatars#destroy", :as => :delete_avatar
  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
