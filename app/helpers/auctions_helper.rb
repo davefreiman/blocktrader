@@ -1,12 +1,12 @@
 module AuctionsHelper
   
   def auction_summary(auction)
-    if auction.leader == "" 
+    if auction.leader == ""
       "No Bids Yet "
-    elsif auction.leader == auction.winner 
-      "#{auction.winner} Won this Auction! "
+    elsif auction.leader != auction.winner 
+      "Current Bid: $#{auction.current_price} By #{auction.leader.username}"  
     else   
-      "Current Bid: $#{auction.current_price} By #{auction.leader} "
+      "#{auction.winner.username} Won this Auction For $#{auction.current_price}!"
     end   
   end
 end

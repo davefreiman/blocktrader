@@ -10,23 +10,22 @@ gem 'sqlite3'
 
 gem 'geocoder'
 
+gem 'whenever', :require => false
 
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
 
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
 
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
 
-  # Use SCSS for stylesheets
-  gem 'sass-rails', '~> 4.0.0'
+# gem 'compass-rails'
+gem 'zurb-foundation', '~> 4.0.0'
 
-  # Use Uglifier as compressor for JavaScript assets
-  gem 'uglifier', '>= 1.3.0'
+gem 'carrierwave'
 
-  # Use CoffeeScript for .js.coffee assets and views
-  gem 'coffee-rails', '~> 4.0.0'
-
-  # gem 'compass-rails'
-  gem 'zurb-foundation', '~> 4.0.0'
-
-  gem 'carrierwave'
 gem "rmagick"
 
 
@@ -56,6 +55,7 @@ group :development do
   gem 'better_errors' # makes the errors we see in the browser more descriptive
   gem "binding_of_caller"
   gem 'pry-rails'
+  gem 'letter_opener'
 end
 
 group :test do 

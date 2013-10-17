@@ -35,13 +35,13 @@ class Auction < ActiveRecord::Base
 	end
 
 	def winner
-		self.bids.where.not("amount" => nil).last.user.username if self.completed? && self.bids.first != nil
+		self.bids.where.not("amount" => nil).last.user if self.completed? && self.bids.first != nil
 	end
 
 	def leader
 		return "" if self.bids.empty? || self.bids.first.amount == nil
 		return self.winner if self.completed?
-		self.bids.where.not("amount" => nil).last.user.username if !self.completed? && self.bids.first != nil
+		self.bids.where.not("amount" => nil).last.user if !self.completed? && self.bids.first != nil
 	end
 
 	def self.search(query)

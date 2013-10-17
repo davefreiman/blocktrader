@@ -30,7 +30,7 @@
           <h5>Auctions Won: </h5>
           <% @auctions.each do |auction| %>
             
-              <% if auction.winner == @user.username %>
+              <% if auction.winner == @user %>
                <p><%= link_to auction.name, auction_path(auction) %></p>
               <% end %>
             
@@ -44,6 +44,14 @@
           <p>Comment: <%= rating.comment %> </p>
         <% end %>
         <p>Average rating: <%= rating_average(@ratings).round(2) %></p>
+      </div>  
+
+      <div id="auctions-won">
+        <h5>Notifications:</h5>        
+        <% @notifications.each do |notification| %>
+          <p><%= link_to notification.notice, auction_path(notification.auction_id) %> </p>
+        <% end %>
+
       </div>  
 
       <div id="auctions-won">

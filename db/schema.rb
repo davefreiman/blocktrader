@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131017181825) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.boolean  "winner_notified"
   end
 
   create_table "avatars", force: true do |t|

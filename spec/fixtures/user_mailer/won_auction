@@ -1,0 +1,3 @@
+UserMailer#won_auction
+
+Hi, find me in app/views/user_mailer/won_auction
