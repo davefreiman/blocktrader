@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 gem 'sorcery'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 
 gem 'geocoder'
 
@@ -56,6 +56,7 @@ group :development do
   gem "binding_of_caller"
   gem 'pry-rails'
   gem 'letter_opener'
+  gem 'sqlite3'
 end
 
 group :test do 
@@ -64,6 +65,9 @@ group :test do
   gem "capybara" # needed for our integration tests, which we'll talk about more later
 end  
 
+group :production do
+  gem 'pg'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
