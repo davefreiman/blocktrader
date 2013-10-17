@@ -56,6 +56,7 @@ group :development do
   gem "binding_of_caller"
   gem 'pry-rails'
   gem 'letter_opener'
+  gem 'sqlite3'
 end
 
 group :test do 
@@ -63,6 +64,10 @@ group :test do
   gem "factory_girl_rails" 
   gem "capybara" # needed for our integration tests, which we'll talk about more later
 end  
+
+group :production do
+  gem 'pg'
+end
 
 
 # Use ActiveModel has_secure_password
