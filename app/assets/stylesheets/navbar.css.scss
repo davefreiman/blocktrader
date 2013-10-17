@@ -1,0 +1,60 @@
+
+.nav-bar {
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	padding-bottom: 10px;
+	
+}
+/*Search */
+
+.search-container {
+	margin-top: 5px;
+	
+}
+
+#nav_item{
+	display: inline;
+	float:left;
+	width: 100px;
+}
+
+#nav_near {
+	display: inline;
+	float:left;
+	width: 100px;
+}
+
+#nav_radius {	
+	display: inline;
+	float:left;
+	width: 100px;
+}
+
+#nav_search_btn {
+	display: inline;
+	float:left;
+	width: 100px;
+	margin-left: 10px;
+}
+
+
+/*Coloured Divs*/
+ .redBorder {
+	background-color: #53DC7F;
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}
+
+.greenBorder {
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}
+
+.blueBorder {
+	width: 33.33%;
+	float: left;
+	height: 4px;
+}

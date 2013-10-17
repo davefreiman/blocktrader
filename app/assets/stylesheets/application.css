@@ -13,58 +13,18 @@
  */
  *= require foundation_and_overrides;
 
+.contentWrapper {
 
- .redBorder {
-	background-color: #53DC7F;
-	width: 33.33%;
-	float: left;
-	height: 4px;
+	position: absolute;
+	top: 0px;
+	right: 0;
+	bottom: 0;
+	left: 0;	
 }
 
-.greenBorder {
-	width: 33.33%;
-	float: left;
-	height: 4px;
+.row {
+	min-width: 100% !important;
 }
-
-.blueBorder {
-	width: 33.33%;
-	float: left;
-	height: 4px;
-}
-
-/* Search Bar*/
-
-.search-container {
-	margin-top: 5px;
-	
-}
-
-#nav_item{
-	display: inline;
-	float:left;
-	width: 100px;
-}
-
-#nav_near {
-	display: inline;
-	float:left;
-	width: 100px;
-}
-
-#nav_radius {	
-	display: inline;
-	float:left;
-	width: 100px;
-}
-
-#nav_search_btn {
-	display: inline;
-	float:left;
-	width: 100px;
-	margin-left: 10px;
-}
-/**/
 
 /*auction index*/
 
@@ -75,7 +35,8 @@
 }
 
 .auctions-container {
-	margin-top: 0px;
+	padding-top: 13%;
+	padding-left: 2%;
 
 
 }
@@ -114,13 +75,13 @@
 #auction-info {
 	position: relative;
 	
-	padding-top: 0px;
+	padding-top: 13%;
 	padding-left: 20px;
 }
 
 #map-canvas {
 	position: absolute;
-	top: 0px;
+	top: 60px;
 	width: 100%;
 	height: 1000px;
 }
@@ -136,8 +97,8 @@
 /*Auction New*/
 #header-container {
 	width: 100%;
-	background-color: #EFEFEF;
-	padding-top: 20px;
+
+	padding-top: 7%;
 	padding-bottom: 20px;
 	height: 400px;
 }

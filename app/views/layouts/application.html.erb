@@ -19,11 +19,12 @@
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
 
+
+<!-- Scripts -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
  
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true">
     </script>
-    	<script type="text/javascript" src="js/foundation/foundation.js"></script>
 
   	<script type="text/javascript" src="/assets/custom.js"></script>
 
@@ -32,137 +33,111 @@
 
   <body>
   	<!-- Nav Bar  -->
-  	<div class="fixed">
+<div class="row">
+<div class="nav-bar">
   	<nav class="top-bar">
+
   		<ul class="title-area">
   			<li class="name">
-  			<h1><%= link_to "BlockTrader", :root %></h1>
+  				<h1><%= link_to "BlockTrader", :root %></h1>
   			</li>
-			  <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>	
+			<li class="toggle-topbar menu-icon">
+			  	<a href="#"><span>Menu</span></a>
+			</li>	
   		</ul>
 
   		<section class="top-bar-section">
-
 	  		<ul class="left">
-
 		        <li class="divider"></li>
-		        <li class><%= link_to "Auctions", :auctions %> </li>
+
+		        	<li><%= link_to "Auctions", :auctions %> </li>
+
 		        <li class="divider"></li>
 		        
-
 		       	<li class="has-form">
-		      
-				 <div class="search-container">  
-
-		         <%= form_tag auctions_path, :method => "get" do %>
-				  
-				      	
-				        <%= text_field_tag :search, params[:search], :placeholder => "Search For...", :id =>"nav_item" %>
-				      
-				
-		              
-		                <%= text_field_tag :location, params[:location], :placeholder => "Near", :id => "nav_near" %>
-		           
-              			
-                		<%= number_field_tag :radius, params[:radius], :placeholder => "Radius", :id=> "nav_radius"%>
-              			
-              
-				   
-				        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>
-				      
-				    <% end %>
-			
-				  </div>
+					<div class="search-container">  
+				        <%= form_tag auctions_path, :method => "get" do %> 	
+					        <%= text_field_tag :search, params[:search], :placeholder => "Search For...", :id =>"nav_item" %>
+			                <%= text_field_tag :location, params[:location], :placeholder => "Near", :id => "nav_near" %>
+			        		<%= number_field_tag :radius, params[:radius], :placeholder => "Radius", :id=> "nav_radius"%>
+					        <%= submit_tag 'Search', :name => nil, :class=>"button", :id=>"nav_search_btn" %>  
+						<% end %>
+					</div>
 				</li>
-
 		    </ul>
 
 		    <ul class="right">
 		        <% if logged_in? %>
+
 		          <li class="divider"></li>
+
 		          <li class="has-dropdown"> <a href="#"><%= link_to current_user.first_name, user_path(current_user) %></a>
 		            <ul class="dropdown">
-		              <li><%= link_to "Profile", user_path(current_user) %>
+		              <li><%= link_to "Profile", user_path(current_user) %></li>
 		              <li><%= link_to "New Auction", new_auction_path %></li>
 		              <li><%= link_to "Log out", logout_path, :method => :delete %></li>
 		            </ul>
-		          </li>
-		          
+		          </li>  
 		        <% else %>
-		        <li class="divider"></li>
-		         <li class=>  <%= link_to 'Sign Up', [:new, :user]%></li>
-		          <li class="divider"></li>
-		          <li  data-reveal-id="signInModal"><%= link_to 'Sign In', [:new, :session] %></li>
+			        <li class="divider"></li>
+			        <li><%= link_to 'Sign Up', [:new, :user]%></li>
+			        <li class="divider"></li>
+			        <li  data-reveal-id="signInModal"><%= link_to 'Sign In', [:new, :session] %></li>
 		       <% end %>
 	      	</ul>
-	  		</section>
+
+	  	</section>
 
 
 	  		<div id="signInModal" class="reveal-modal">
-			  <%= form_tag sessions_path, :method => :post do %>
-			
-				
+				<%= form_tag sessions_path, :method => :post do %>
 					<%= label_tag :email %>
 					<%= text_field_tag :email, params[:email], :placeholder => "john@mail.com" %> 
-		
-				
 					<%= label_tag :password %>
-					<%= password_field_tag :password %>
-		
-				</br>
-					<p> Don't have an account? <%= link_to "Click Here", new_user_path %>
-
+					<%= password_field_tag :password %></br>
+					<p> Don't have an account? <%= link_to "Click Here", new_user_path %></p>
 					<%= submit_tag 'Login', :class => "button" %>
-				</div>
+				<% end %>
 			</div>
 
-		<% end %>
-			</div>
+	</nav>
 
-	  	</nav>
-	  	<div class="row">
+	<div>
 			<div class="redBorder"></div>
 			<div class="greenBorder"></div>
 			<div class="blueBorder"></div>
-		</div>
-	  </div>
+	</div>
 
-
-	<!-- Colour bar -->
-
-
-	
 <!-- Notices -->
-	<% if flash[:notice] %>
-	 
-      <div data-alert class="alert-box">
-	  		<%= flash[:notice] %>
-	 </div>
-     
 
+	<% if flash[:notice] %>
+		<div data-alert class="alert-box">
+		  <%= flash[:notice] %>
+		</div>
 	<% end %>
 
-   <% if flash[:alert] %>
- 
-        <div data-alert class="alert-box">
-             <%= flash[:alert] %>
-         </div>
-       
+	<% if flash[:alert] %>
+	    <div data-alert class="alert-box">
+	        <%= flash[:alert] %>
+	    </div>
+	<% end %>
 
-    <% end %>
+</div>
+</div>
+
+
+<!--  Nav Bar Ends -->
+<div class="row">
+<div class="contentWrapper">
+
 
 <%= yield %>
 
 
-	
-
-    	<!-- Foundation JS -->
-
-
-
-
-
     <%= javascript_include_tag "application" %>
+</div>
+</div>
+
 
   </body>
 </html>

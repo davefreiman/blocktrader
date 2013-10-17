@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.user-container {
+	padding-top: 5%;
+	padding-left: 10px;
+}
 #container1 {
 	background-image: url(/assets/header3.png);
 	background-color: #F6F6F6;
