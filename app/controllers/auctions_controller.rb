@@ -26,8 +26,13 @@ class AuctionsController < ApplicationController
 	def show
 		@auction = Auction.find(params[:id])
 		@bid = @auction.bids.build
-		@lat = @auction.location.latitude
-		@lon = @auction.location.longitude
+		if current_user == @auction.winner
+			@lat = @auction.location.latitude
+			@lon = @auction.location.longitude
+		else
+			@lat = @auction.location.latitude.round(2)
+			@lon = @auction.location.longitude.round(2)
+		end	
 	end
 
 	def new

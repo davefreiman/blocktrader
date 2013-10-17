@@ -8,9 +8,7 @@
 # set :output, "/path/to/my/cron_log.log"
 #
 every 2.minutes do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-  rake "notification:notify"
+  rake "notification:notify", :environment => :development
 end
 #
 # every 4.days do

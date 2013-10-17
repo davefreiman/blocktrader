@@ -37,7 +37,7 @@
       <div id="auctions-won">
         <h5>Notifications:</h5>        
         <% @notifications.each do |notification| %>
-          <p>Score: <%= notification.notice %> </p>
+          <p><%= link_to notification.notice, auction_path(notification.auction_id) %> </p>
         <% end %>
 
       </div>  
