@@ -1,70 +1,92 @@
 <div class="user-container">
 
 
-<div class="row">
-  <div id="header-name-container">
+  <div class="row">
+    
+      <div class="user-header text-center">
+        <div class="small-12 columns"> 
 
-      
-      
-
-      <div id="user-name">
-
-        <div class="user-avatar">
-          <% @user.avatars.each do |i| %>
-            <a href="<%= i.file%>" id="user-profile-avatar"><img src ="<%= i.file_url(:thumb)%>" /></a>
-          <% end %> 
+        <div class="small-6 columns">  
+          <div class="user-avatar">
+            <% @user.avatars.each do |i| %>
+              <a href="<%= i.file%>" id="user-profile-avatar"><img src ="<%= i.file_url(:thumb)%>" /></a>
+            <% end %> 
+          </div>
         </div>
 
-        <h2><%= @user.first_name %> <%=@user.last_name %></h2>
-        <h4 style="padding-left: 10px;"><%= @user.email %></h4> </br>
+        <div class="user-info">
+          <div class="small-6 columns">  
+            <h1 class="subheader"><%= @user.first_name %> <%=@user.last_name %></h1>
+            <h4 class="subheader"><%= @user.email %> ,
+               <%if @locations %>
+                <% @locations.each do |location| %>
+                   <%= location.address %>
+                <%end%>
+              <% end %>  
+             </h4>
+             <h5 class="subheader">Average rating: <%= rating_average(@ratings).round(2) %></h5>
 
-        <p><%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round" %> 
+             <%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round", :class => "user-button" %> 
         <%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %>
-         <%= link_to "Manage Avatar", user_avatars_path(@user), :class => "button tiny round" %> </p>
-     </div>
+         <%= link_to "Manage Avatar", user_avatars_path(@user), :class => "button tiny round" %> 
+
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
 
 <div class="row">
-      <div id="auctions-won">
-          <h5>Auctions Won: </h5>
-          <% @auctions.each do |auction| %>
+
+<div class="small-12 columns">
+  <div class="section-container accordion" data-section="accordion">
+    <section class="active">
+      <p class="title" data-section-title><a href="#">Auctions Won</a></p>
+      <div class="content" data-section-content>
+        <% @auctions.each do |auction| %>
             
               <% if auction.winner == @user %>
                <p><%= link_to auction.name, auction_path(auction) %></p>
               <% end %>
             
-          <% end %>  
+          <% end %> 
       </div>
+    </section>
 
-      <div id="auctions-won">
-        <h5>Ratings:</h5>        
+    <section>
+      <p class="title" data-section-title><a href="#">Ratings</a></p>
+      <div class="content" data-section-content>
         <% @ratings.each do |rating| %>
           <p>Score: <%= rating.score %> </p>
           <p>Comment: <%= rating.comment %> </p>
         <% end %>
-        <p>Average rating: <%= rating_average(@ratings).round(2) %></p>
-      </div>  
+      </div>
+    </section>
 
-      <div id="auctions-won">
-        <h5>Notifications:</h5>        
+    <section>
+      <p class="title" data-section-title><a href="#">Notifications</a></p>
+      <div class="content" data-section-content>
         <% @notifications.each do |notification| %>
           <p><%= link_to notification.notice, auction_path(notification.auction_id) %> </p>
         <% end %>
-
-      </div>  
-
-      <div id="auctions-won">
-          <%if @locations %>
-          <h5>My Locations:</h5>
-            <% @locations.each do |location| %>
-              <p> <%= location.address %> </p>
-           
-              <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{location.latitude}%2C#{location.longitude}" %>
-            <%end%>
-          <% end %>  
       </div>
+    </section>
+
+  </div>
 </div>
 
-</div>
+
+
+      
+
+ </div>
+
+
+
+
+
+
 

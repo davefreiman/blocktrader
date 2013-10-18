@@ -4,19 +4,39 @@
 
 .user-container {
 	padding-top: 5%;
+	padding-bottom: 20px;
 	padding-left: 10px;
+	background-color: #EFEFEF;
 }
 
 
 .user-avatar {
+
 	margin-top: 20px;
-	margin-right: 100px;
+	margin-right: auto;
+	margin-left: auto;
 	display: inline-block;
-	height: 100px;
-	width: 100px;
-	float: right;
-	-webkit-border-radius: 5em;
-	 -moz-border-radius: 5em;
+	border: 10px solid #fff; 
+
+}
+
+.user-header {
+	max-width: 850px;
+	padding-right: 15px;
+	padding-bottom: 50px;
+	padding-left: 15px;
+	padding-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.won-auctions {
+	background-color: white;
+
+}
+
+.user-button {
+	margin-left: 25px;
 }
 
 
@@ -34,6 +54,10 @@
 	margin-left: -21px;
 	background-color: #EFEFEF;
 	height: 10%
+}
+
+.user-info {
+	margin-top: 30px;
 }
 
 #user-name {

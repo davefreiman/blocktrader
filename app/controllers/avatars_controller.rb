@@ -14,7 +14,7 @@ class AvatarsController < ApplicationController
 	def create
 		@avatar = @user.avatars.build(avatar_params)
 		if @avatar.save
-			redirect_to [@user, :avatars], notice: "avatar uploaded. Check it out below."
+			redirect_to user_path(@user), notice: "avatar uploaded. Check it out below."
 		else
 			@avatars = @user.avatars.order(:id)
 			render :index
