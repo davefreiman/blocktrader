@@ -29,7 +29,7 @@
       </div>
 <div class="full-page">  
          <div class="large-7 columns">
-            <div id="map-canvas" data-radius="<%= @radius * 1000 %>">
+            <div id="map-canvas" data-radius="<%= @radius.to_i * 1000 %>" data-local="<%= params[:location]%>" data-lon="ear">
              
 
             </div>
@@ -47,11 +47,54 @@
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
       }
-      else {console.log("Geolocation is not supported by this browser.");}
+      else {console.log("Geolocation is not supported by this browser.");
       }
+    };
+
+    function codeAddress(address) {
+      geocoder = new google.maps.Geocoder();
+
+      var address = address;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            showAnotherPosition(results[0].geometry.location);
+          } 
+          else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      } 
+    
+    function showAnotherPosition(position) {
+      var radius = $("#map-canvas").data("radius");
+      console.log ("bingo")
+      console.log(radius)
+      var defLatLon = new google.maps.LatLng(position);
+      console.log(defLatLon)
+      var defMapOptions = {
+        zoom: 12,
+        center: defLatLon,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map-canvas"), defMapOptions);
+      var defCircleOptions = {
+        strokeColor: '#79b0e6',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#79b0e6',
+        fillOpacity: 0.25,
+        map: map,
+        center: defLatLon,
+        radius: radius,    
+      };
+      var mapCircle = new google.maps.Circle(defCircleOptions);
+    }
+
 
     function showPosition(position) {
       var radius = $("#map-canvas").data("radius");
+      console.log ("bingo")
+      console.log(radius)
       var defLatLon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var defMapOptions = {
         zoom: 12,
@@ -78,15 +121,31 @@
       script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDSTLVysvUOawHXL8ON4n4nZdrMpIY1Qo0&sensor=true&callback=initialize";
       document.body.appendChild(script);
     }
-    getLocation()
+   
 
-      var auctions = $(".auctions-container").data("auction")
-      $.each([auctions], function(index, auction){
-        console.log(auction);
-        $.each(auction, function(key, value){
-          console.log(value.name)
-        });
-      });      
+    getLocation();
+    var geocoder;
+    var weirdStuff = $("#map-canvas").data("local");
+    console.log(weirdStuff);
+    
+    // if(weirdStuff == ""){
+    //   getLocation();
+    //   console.log("what")
+    // }
+    // else {
+    //   codeAddress(weirdStuff); 
+    // };
+   
+ 
+
+
+      // var auctions = $(".auctions-container").data("auction")
+      // $.each([auctions], function(index, auction){
+      //   console.log(auction);
+      //   $.each(auction, function(key, value){
+      //     console.log(value.name)
+      //   });
+      // });      
 
   });
 

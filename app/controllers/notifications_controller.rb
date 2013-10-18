@@ -17,7 +17,7 @@ class NotificationsController < ApplicationController
 
   def index
     
-  end2
+  end
 
   def load_auctions
     @auctions = Auction.all
