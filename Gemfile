@@ -59,9 +59,6 @@ group :development do
   gem 'pry-rails'
   gem 'letter_opener'
   gem 'sqlite3'
-<<<<<<< HEAD
- 
-
 end
 
 group :test do 

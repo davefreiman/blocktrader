@@ -17,17 +17,18 @@
         <div class="user-info">
           <div class="small-6 columns">  
             <h1 class="subheader"><%= @user.first_name %> <%=@user.last_name %></h1>
-            <h4 class="subheader"><%= @user.email %> ,
+            <h3 class="subheader"><%= @user.email %> </h3>
+            <h5 class="subheader">
                <%if @locations %>
                 <% @locations.each do |location| %>
-                   <%= location.address %>
+                   <%= location.address %> <br>
                 <%end%>
               <% end %>  
-             </h4>
+             </h5>
              <h5 class="subheader">Average rating: <%= rating_average(@ratings).round(2) %>
 
             
-            
+            <br>
 
              <%= link_to "Edit Account", edit_user_path(@user), :class => "button tiny round"%> 
         <%= link_to "Manage Locations", user_locations_path(@user), :class => "button tiny round" %>

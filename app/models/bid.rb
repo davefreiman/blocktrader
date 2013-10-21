@@ -9,7 +9,7 @@ class Bid < ActiveRecord::Base
 
 
 	def amount_must_be_greater_than_current_price
-		if amount <= self.auction.current_price
+		if self.amount && self.amount <= self.auction.current_price
 			errors.add(:amount, "BID MORE NOW")
 		end	
 	end

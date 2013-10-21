@@ -23,7 +23,7 @@ class BidsController < ApplicationController
 	end
 
 	def bid_params
-		params.require(:bid).permit(:amount, :auction_id, :user_id)
+		params.require(:bids).permit(:amount, :auction_id, :user_id) if params[:bids]
 	end
 
 	private
