@@ -4,7 +4,7 @@
     
     <div id="auction-info">
       <h1><%= @auction.name %> </h1>
-      <p>Seller: <%= @auction.user.username %> <%= link_to "Manage Images", auction_images_path(@auction), :class => "small button round" if current_user == @auction.user %>
+      <p>Seller: <%= @auction.user.username %> 
       </p>
     	<p>Starting Price: $<%= @auction.start_price %></p>
       <p><%= auction_summary(@auction) %></p>
@@ -34,9 +34,13 @@
 
     <div class="large-10 columns">
       <% if !@auction.completed? %>
-        <%= form_for ([@auction, @bid]) do |f| %>
-        	<a href="#" data-reveal-id="myModal"><%= f.submit :class => "button" %></a>
-        <%end%>	
+          <% if current_user == @auction.user %>
+            <%= link_to "Manage Images", auction_images_path(@auction), :class => "button round"%>
+          <% else %>  
+            <%= form_for ([@auction, @bid]) do |f| %>
+          	<a href="#" data-reveal-id="myModal"><%= f.submit :class => "button" %></a>
+          <%end%>	
+        <%end%>         
       <%end%>
     </div>
   </div>
@@ -47,11 +51,14 @@
      <p>Starting Price: $<%= @auction.start_price %></p>
 
      <p><%= auction_summary(@auction) %></p>
-        <%= form_for ([@auction, @bid]) do |f| %>
-          <%= f.label :amount %>
-          <%= f.number_field :amount%>
-          <%= f.submit :class => "button" %>
-        <%end%> 
+        
+          <%= form_for ([@auction, @bid]) do |f| %>
+            <%= f.label :amount %>
+            <%= f.number_field :amount%>
+            <%= f.submit :class => "button" %>
+          <%end%>   
+     
+        
       <%end%>
   </div>
 

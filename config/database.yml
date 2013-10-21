@@ -16,13 +16,6 @@ test:
 
 production:
   adapter: postgresql
-<<<<<<< HEAD
-  database: my_datbase_production
-  pool: 5
-  timeout: 5000
-
-
-=======
   database: blocktrader
   host: localhost
->>>>>>> 323317a8d8a59e7d60a9cd63cf9d9bba56807f0e
+

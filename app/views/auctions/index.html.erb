@@ -57,6 +57,9 @@
       var address = address;
         geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
+            console.log(results[0])
+            console.log(results[0].geometry)
+            console.log(results[0].geometry.location)            
             showAnotherPosition(results[0].geometry.location);
           } 
           else {
@@ -67,33 +70,33 @@
     
     function showAnotherPosition(position) {
       var radius = $("#map-canvas").data("radius");
-      console.log ("bingo")
-      console.log(radius)
-      var defLatLon = new google.maps.LatLng(position);
-      console.log(defLatLon)
-      var defMapOptions = {
+      console.log ("showAnotherPosition")
+      console.log(position)
+      var newLatLon = new google.maps.LatLng(position.lb, position.mb);
+      console.log(newLatLon)
+      var newMapOptions = {
         zoom: 12,
-        center: defLatLon,
+        center: newLatLon,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-      var map = new google.maps.Map(document.getElementById("map-canvas"), defMapOptions);
-      var defCircleOptions = {
+      var map = new google.maps.Map(document.getElementById("map-canvas"), newMapOptions);
+      var newCircleOptions = {
         strokeColor: '#79b0e6',
         strokeOpacity: 0.8,
         strokeWeight: 2,
         fillColor: '#79b0e6',
         fillOpacity: 0.25,
         map: map,
-        center: defLatLon,
+        center: newLatLon,
         radius: radius,    
       };
-      var mapCircle = new google.maps.Circle(defCircleOptions);
+      var mapCircle = new google.maps.Circle(newCircleOptions);
     }
 
 
     function showPosition(position) {
       var radius = $("#map-canvas").data("radius");
-      console.log ("bingo")
+      console.log ("showing position")
       console.log(radius)
       var defLatLon = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var defMapOptions = {
@@ -122,19 +125,17 @@
       document.body.appendChild(script);
     }
    
-
-    getLocation();
     var geocoder;
     var weirdStuff = $("#map-canvas").data("local");
-    console.log(weirdStuff);
     
-    // if(weirdStuff == ""){
-    //   getLocation();
-    //   console.log("what")
-    // }
-    // else {
-    //   codeAddress(weirdStuff); 
-    // };
+    if(weirdStuff == ""){
+      console.log("getting standard locations")    
+      getLocation();
+    }
+    else {
+      console.log("weirding out")
+      codeAddress(weirdStuff); 
+    };
    
  
 
